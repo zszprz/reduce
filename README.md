@@ -51,11 +51,11 @@
 
 - `matrix` is generated or imported matrix
 
-<b>Relative Error Index (REI):</b> `relative_error_index(matrix)`
+<b>Relative Error Index (REI):</b> `index = relative_error_index(matrix)`
 
 - `matrix` is generated or imported matrix
 
-<b>Harmonic Consistency Index (HCI):</b> `harmonic_consistency_index(matrix)`
+<b>Harmonic Consistency Index (HCI):</b> `index = harmonic_consistency_index(matrix)`
 
 - `matrix` is generated or imported matrix
 
