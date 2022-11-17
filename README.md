@@ -13,6 +13,60 @@ Reduce is a python package that help with pairwise comparison matrices computati
 - Prepare CSV file as matrix.csv in main folder of this repository and use `import_pc_matrix_from_csv(filename)` or
 - Generate random matrix by using `import_pc_matrix_from_csv(filename)`
 
+### Consistency reduction algorithms:
+
+- Xu and Wei: `new_matrix, ci, cr = xu_and_wei_cr(matrix, lambda, threshold)`
+
+`matrix` is generated or imported matrix
+`lambda` is a lambda parameter for that algorithm (if you don't know what is it, set it to 0.9)
+`threshold` is a threshold to which value we want to reduce CR
+
+- Cao: `new_matrix, ci, cr = cao_cr(matrix, lambd, threshold)`
+
+`matrix` is generated or imported matrix
+`lambda` is a lambda parameter for that algorithm (if you don't know what is it, set it to 0.9)
+`threshold` is a threshold to which value we want to reduce CR
+
+- Szybowski: `new_matrix, ci, cr = szybowski_cr(matrix, threshold)`
+
+`matrix` is generated or imported matrix
+`threshold` is a threshold to which value we want to reduce CR
+
+### Pairwise comparison matrices indexes:
+
+- Xu and Wei: `new_matrix, ci, cr = xu_and_wei_cr(matrix, lambda, threshold)`
+
+`matrix` is generated or imported matrix
+`lambda` is a lambda parameter for that algorithm (if you don't know what is it, set it to 0.9)
+`threshold` is a threshold to which value we want to reduce CR
+
+- Koczkodaj Index (KI): `index = koczkodaj_index(matrix)`
+
+`matrix` is generated or imported matrix
+
+- Golden Wang Index (GWI): `index = golden_wang_index(matrix)`
+
+`matrix` is generated or imported matrix
+
+- Palaez Lamata Index (PLI): `index = pelaez_lamata_index(matrix)`
+
+`matrix` is generated or imported matrix
+
+- Geometric Consistency Index (GCI): `index = geometric_consistency_index(matrix)`
+
+`matrix` is generated or imported matrix
+
+- Triads Geometric Consistency Index (TGCI): `index = triads_geometric_consistency_index(matrix)`
+
+`matrix` is generated or imported matrix
+
+- Relative Error Index (REI): `relative_error_index(matrix)`
+
+`matrix` is generated or imported matrix
+
+- Harmonic Consistency Index (HCI): `harmonic_consistency_index(matrix)`
+
+`matrix` is generated or imported matrix
 
 ### Development features
 
