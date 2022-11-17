@@ -5,7 +5,7 @@
 
 ### How to use it?
 
-- It supports pairwise comparison matrices from 3x3 to 14x14
+- It supports pairwise comparison matrices from 3x3 to 14x14 in Saaty scale
 - Module `reduce.py` is in reduce folder of this repository
 - Prepare CSV file as matrix.csv in main folder of this repository and use `import_pc_matrix_from_csv(filename)` or
 - Generate random matrix by using `import_pc_matrix_from_csv(filename)`
