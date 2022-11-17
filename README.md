@@ -10,7 +10,7 @@
 - Prepare CSV file as matrix.csv in main folder of this repository and use `import_pc_matrix_from_csv(filename)` or
 - Generate random matrix by using `import_pc_matrix_from_csv(filename)`
 
-### Consistency reduction algorithms:
+### Inconsistency reduction algorithms:
 
 <b>Xu and Wei:</b> `new_matrix, ci, cr = xu_and_wei_cr(matrix, lambda, threshold)`
 
