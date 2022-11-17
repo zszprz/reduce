@@ -2,14 +2,14 @@
 
 <div align="center">
 
-Reduce is a python package that help with pairwise comparison matrices computations, such as CR reductions and calculate multiple indexes
+`reduce.py` is a python module that help with pairwise comparison matrices computations, such as CR reductions and calculate multiple indexes
 
 </div>
 
 ### How to use it?
 
 - It supports pairwise comparison matrices from 3x3 to 14x14
-- Module [`reduce.py`] is in reduce folder of this repository
+- Module `reduce.py` is in reduce folder of this repository
 - Prepare CSV file as matrix.csv in main folder of this repository and use `import_pc_matrix_from_csv(filename)` or
 - Generate random matrix by using `import_pc_matrix_from_csv(filename)`
 
