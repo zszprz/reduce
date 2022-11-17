@@ -1,0 +1,13 @@
+# This file contains values from Cookiecutter
+
+default_context:
+  project_name: "reduce"
+  project_description: "Reduce is a python package that help with pairwise comparison matrices computations, such as CR reductions and calculate multiple indexes"
+  organization: "ZSZ & SBA"
+  license: "MIT"
+  minimal_python_version: 3.9
+  github_name: "zsz_prz/reduce"
+  email: "p.kuras@prz.edu.pl"
+  version: "0.1.0"
+  line_length: "150"
+  create_example_template: "none"
