@@ -17,9 +17,9 @@ Reduce is a python package that help with pairwise comparison matrices computati
 
 - Xu and Wei: `new_matrix, ci, cr = xu_and_wei_cr(matrix, lambda, threshold)`
 
-`matrix` is generated or imported matrix
-`lambda` is a lambda parameter for that algorithm (if you don't know what is it, set it to 0.9)
-`threshold` is a threshold to which value we want to reduce CR
+--`matrix` is generated or imported matrix
+--`lambda` is a lambda parameter for that algorithm (if you don't know what is it, set it to 0.9)
+--`threshold` is a threshold to which value we want to reduce CR
 
 - Cao: `new_matrix, ci, cr = cao_cr(matrix, lambd, threshold)`
 
