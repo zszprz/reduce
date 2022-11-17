@@ -6,6 +6,16 @@ Reduce is a python package that help with pairwise comparison matrices computati
 
 </div>
 
+### How to use it?
+
+- It supports pairwise comparison matrices from 3x3 to 14x14
+- Module [`reduce.py`] is in reduce folder of this repository
+- Prepare CSV file as matrix.csv in main folder of this repository and
+- Automatic codestyle with [`black`](https://github.com/psf/black), [`isort`](https://github.com/timothycrosley/isort) and [`pyupgrade`](https://github.com/asottile/pyupgrade).
+- Ready-to-use [`pre-commit`](https://pre-commit.com/) hooks with code-formatting.
+- Type checks with [`mypy`](https://mypy.readthedocs.io); docstring checks with [`darglint`](https://github.com/terrencepreilly/darglint); security checks with [`safety`](https://github.com/pyupio/safety) and [`bandit`](https://github.com/PyCQA/bandit)
+- Testing with [`pytest`](https://docs.pytest.org/en/latest/).
+- Ready-to-use [`.editorconfig`](https://github.com/zsz_prz/reduce/reduce/blob/master/.editorconfig), [`.dockerignore`](https://github.com/zsz_prz/reduce/reduce/blob/master/.dockerignore), and [`.gitignore`](https://github.com/zsz_prz/reduce/reduce/blob/master/.gitignore). You don't have to worry about those things.
 
 ### Development features
 
@@ -19,8 +29,6 @@ Reduce is a python package that help with pairwise comparison matrices computati
 
 
 ## 🛡 License
-
-[![License](https://img.shields.io/github/license/zsz_prz/reduce/reduce)](https://github.com/zsz_prz/reduce/reduce/blob/master/LICENSE)
 
 This project is licensed under the terms of the `MIT` license. See [LICENSE](https://github.com/zsz_prz/reduce/reduce/blob/master/LICENSE) for more details.
 
