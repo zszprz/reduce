@@ -86,7 +86,7 @@ This project is licensed under the terms of the `MIT` license. See [LICENSE](htt
   year = {2022},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/zsz_prz/reduce/reduce}}
+  howpublished = {\url{https://github.com/zsz_prz/reduce/}}
 }
 ```
 
