@@ -1,10 +1,7 @@
 # reduce
 
-<div align="center">
-
 `reduce.py` is a python module that help with pairwise comparison matrices computations, such as CR reductions and calculate multiple indexes
 
-</div>
 
 ### How to use it?
 
