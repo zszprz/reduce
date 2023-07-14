@@ -13,6 +13,14 @@ from operator import itemgetter
 # function that create random pairwise comparison matrix
 
 def create_pc_matrices(size):
+    """Creates a random pairwise comparison matrix of a given size.
+
+    Args:
+        size (int): The size of the matrix to create.
+
+    Returns:
+        np.ndarray: The created pairwise comparison matrix.
+    """
     n_matrix = eye(size)  # generates identity matrix in size n x n
 
     for x in range(size):  # replace all zeros in that identity matrix with random picked numbers from defined list
@@ -31,6 +39,11 @@ def create_pc_matrices(size):
 # function that return random number according to construction of pairwise comparison matrices
 
 def return_random_number():
+    """Returns a random number according to the construction of pairwise comparison matrices.
+
+    Returns:
+        Rational: The randomly chosen number.
+    """
     choice_list = [Rational(1, 9), Rational(1, 8), Rational(1, 7), Rational(1, 6), Rational(1, 5), Rational(1, 4),
                    Rational(1, 3), Rational(1, 2), 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -40,6 +53,14 @@ def return_random_number():
 # function that return max eigenvalue needed in further computations
 
 def return_max_eigenvalue(n_matrix):
+    """Returns the maximum eigenvalue needed in further computations.
+
+    Args:
+        n_matrix (np.ndarray): The matrix to compute the eigenvalue for.
+
+    Returns:
+        float: The maximum eigenvalue.
+    """
     nump_table = np.array(n_matrix).astype(np.float64)
     evals, evecs = la.eig(nump_table)
 
@@ -52,6 +73,14 @@ def return_max_eigenvalue(n_matrix):
 # function that calculates eigenvectors for matrix
 
 def calc_vecs(n_matrix):
+    """Calculates eigenvectors for a given matrix.
+
+    Args:
+        n_matrix (np.ndarray): The matrix to compute the eigenvectors for.
+
+    Returns:
+        List[float]: The calculated eigenvectors.
+    """
     nump_table = np.array(n_matrix).astype(np.float64)
     evals, evecs = la.eig(nump_table)
     abs_real_evecs = np.absolute(evecs.real)
@@ -78,6 +107,14 @@ def calc_vecs(n_matrix):
 # function that calculate geometric mean for given matrix
 
 def calc_geo_mean(n_matrix):
+    """Calculates the geometric mean for a given matrix.
+
+    Args:
+        n_matrix (np.ndarray): The matrix to compute the geometric mean for.
+
+    Returns:
+        List[float]: The calculated geometric mean.
+    """
     nump_table = np.array(n_matrix).astype(np.float64)
     list_of_geo_mean = []
     matrix_size = nump_table.shape[0]
@@ -92,6 +129,14 @@ def calc_geo_mean(n_matrix):
 # function that calculate eij for given matrix
 
 def calc_eij(n_matrix):
+    """Calculates eij for a given matrix.
+
+    Args:
+        n_matrix (np.ndarray): The matrix to compute eij for.
+
+    Returns:
+        np.ndarray: The calculated eij matrix.
+    """
     tmp_mac = np.array(n_matrix).astype(np.float64)
     l_vector = calc_geo_mean(tmp_mac)
     matrix_size = tmp_mac.shape[0]
@@ -113,6 +158,14 @@ def calc_eij(n_matrix):
 # function that return precalculated RI value for given matrix size
 
 def return_ri(size):
+    """Returns the precalculated RI value for a given matrix size.
+
+    Args:
+        size (int): The size of the matrix.
+
+    Returns:
+        float: The precalculated RI value.
+    """
     if size == 3:
         return 0.5247
     elif size == 4:
@@ -144,6 +197,14 @@ def return_ri(size):
 # function that import pairwise comparison matrices from prepared CSV file
 
 def import_pc_matrix_from_csv(filename):
+    """Imports a pairwise comparison matrix from a prepared CSV file.
+
+    Args:
+        filename (str): The name of the CSV file to import.
+
+    Returns:
+        np.ndarray: The imported pairwise comparison matrix.
+    """
     reader = csv.reader(open(filename, "r"), delimiter=";")
     x = list(reader)
     imported_matrix = np.array(x).astype("float")
@@ -159,6 +220,14 @@ def import_pc_matrix_from_csv(filename):
 # support function that convert given matrix to format needed for GMM index
 
 def convert(imp_matrix):
+    """Converts a given matrix to the format needed for the GMM index.
+
+    Args:
+        imp_matrix (np.ndarray): The matrix to convert.
+
+    Returns:
+        np.ndarray: The converted matrix.
+    """
     matrix = np.squeeze(np.asarray(imp_matrix))
     return matrix
 
@@ -166,6 +235,14 @@ def convert(imp_matrix):
 # function that calculate dynamic vectors for given matrix
 
 def dynamic_vectors(n_matrix):
+    """Calculates dynamic vectors for a given matrix.
+
+    Args:
+        n_matrix (np.ndarray): The matrix to compute dynamic vectors for.
+
+    Returns:
+        List[float]: The calculated dynamic vectors.
+    """
     nump_table = np.array(n_matrix).astype(np.float64)
     evals, evecs = la.eig(nump_table)
     abs_real_evecs = np.absolute(evecs.real)
@@ -184,6 +261,14 @@ def dynamic_vectors(n_matrix):
 # function that calculate GMM vectors
 
 def gmm_vectors(matrix):
+    """Calculates GMM vectors.
+
+    Args:
+        matrix (np.ndarray): The matrix to compute GMM vectors for.
+
+    Returns:
+        List[float]: The calculated GMM vectors.
+    """
     suma = 0
     geo_tmp = []
     tmp = 0
@@ -212,6 +297,16 @@ def gmm_vectors(matrix):
 # lambda parameter and CR threshold
 
 def xu_and_wei_cr(matrix, lambd, threshold):
+   """Implements the Xu and Wei CR reduction algorithm.
+
+    Args:
+        matrix (np.ndarray): The matrix to perform the reduction on.
+        lambd (float): The lambda parameter for the reduction.
+        threshold (float): The CR threshold.
+
+    Returns:
+        Tuple[np.ndarray, float, float]: The new matrix after reduction, CI and CR.
+    """
     tmp_mac = matrix
     matrix_size = int(math.sqrt(len(tmp_mac)))
 
@@ -238,6 +333,16 @@ def xu_and_wei_cr(matrix, lambd, threshold):
 # function that implement Cao CR reduction algorithm and returns new matrix, CI and CR for given matrix, lambda parameter and CR threshold
 
 def cao_cr(matrix, lambd, threshold):
+    """Implements the Cao CR reduction algorithm.
+
+    Args:
+        matrix (np.ndarray): The matrix to perform the reduction on.
+        lambd (float): The lambda parameter for the reduction.
+        threshold (float): The CR threshold.
+
+    Returns:
+        Tuple[np.ndarray, float, float]: The new matrix after reduction, CI and CR.
+    """
     tmp_mac = matrix
     matrix_size = int(math.sqrt(len(tmp_mac)))
 
@@ -265,7 +370,15 @@ def cao_cr(matrix, lambd, threshold):
 # function that implement Szybowski CR reduction algorithm and returns new matrix, CI and CR for given matrix and CR threshold
 
 def szybowski_cr(matrix, threshold):
+    """Implements the Szybowski CR reduction algorithm.
 
+    Args:
+        matrix (np.ndarray): The matrix to perform the reduction on.
+        threshold (float): The CR threshold.
+
+    Returns:
+        Tuple[np.ndarray, float, float]: The new matrix after reduction, CI and CR.
+    """
     tmp_mac = matrix
     matrix_size = int(math.sqrt(len(tmp_mac)))
 
@@ -308,6 +421,14 @@ def szybowski_cr(matrix, threshold):
 # function that return Koczkodaj Index (KI) for given matrix
 
 def koczkodaj_index(matrix):
+    """Returns the Koczkodaj Index (KI) for a given matrix.
+
+    Args:
+        matrix (np.ndarray): The matrix to compute the KI for.
+
+    Returns:
+        float: The Koczkodaj Index.
+    """
     min_list = []
     for i in range(len(matrix)):
         for j in range(len(matrix)):
@@ -324,6 +445,14 @@ def koczkodaj_index(matrix):
 # function that returns Golden Wang Index (GWI) for given matrix
 
 def golden_wang_index(matrix):
+    """Returns the Golden Wang Index (GWI) for a given matrix.
+
+    Args:
+        matrix (np.ndarray): The matrix to compute the GWI for.
+
+    Returns:
+        float: The Golden Wang Index.
+    """
     sum_gw = []
     gw_index = 0
 
@@ -352,6 +481,14 @@ def golden_wang_index(matrix):
 # function that returns Palaez Lamata Index (PLI) for given matrix
 
 def pelaez_lamata_index(matrix):
+    """Returns the Palaez Lamata Index (PLI) for a given matrix.
+
+    Args:
+        matrix (np.ndarray): The matrix to compute the PLI for.
+
+    Returns:
+        float: The Palaez Lamata Index.
+    """
     pli = 0
 
     for i in range(len(matrix) - 2):
@@ -372,6 +509,14 @@ def pelaez_lamata_index(matrix):
 # function that returns Geometric Consistency Index (GCI) for given matrix
 
 def geometric_consistency_index(matrix):
+    """Returns the Geometric Consistency Index (GCI) for a given matrix.
+
+    Args:
+        matrix (np.ndarray): The matrix to compute the GCI for.
+
+    Returns:
+        float: The Geometric Consistency Index.
+    """
     gci = 0
     vectors = gmm_vectors(matrix)
 
@@ -391,6 +536,14 @@ def geometric_consistency_index(matrix):
 # function that returns Triads Geometric Consistency Index (TGCI) for given matrix
 
 def triads_geometric_consistency_index(matrix):
+    """Returns the Triads Geometric Consistency Index (TGCI) for a given matrix.
+
+    Args:
+        matrix (np.ndarray): The matrix to compute the TGCI for.
+
+    Returns:
+        float: The Triads Geometric Consistency Index.
+    """
     tgci = 0
     n = len(matrix)
 
@@ -412,6 +565,14 @@ def triads_geometric_consistency_index(matrix):
 # function that returns Relative Error Index (REI) for given matrix
 
 def relative_error_index(matrix):
+    """Returns the Relative Error Index (REI) for a given matrix.
+
+    Args:
+        matrix (np.ndarray): The matrix to compute the REI for.
+
+    Returns:
+        float: The Relative Error Index.
+    """
     b = 0
     a = 0
     rei = 0
@@ -434,6 +595,14 @@ def relative_error_index(matrix):
 # function that returns Harmonic Consistency Index (HCI) for given matrix
 
 def harmonic_consistency_index(matrix):
+    """Returns the Harmonic Consistency Index (HCI) for a given matrix.
+
+    Args:
+        matrix (np.ndarray): The matrix to compute the HCI for.
+
+    Returns:
+        float: The Harmonic Consistency Index.
+    """
     sj = []
 
     for j in range(len(matrix)):
